@@ -3,7 +3,6 @@ import HomeScreen, {IHomeScreen} from './HomeScreen';
 
 const HomePresenter = () => {
   const homeScreenProps: IHomeScreen = {};
-
   return <HomeScreen {...homeScreenProps} />;
 };
 
