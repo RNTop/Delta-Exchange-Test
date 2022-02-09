@@ -10,3 +10,9 @@ export interface ISellItem {
   size: string;
   depth: string;
 }
+
+export enum ORDERBOOK_TYPE {
+  BUY = 'BUY',
+  SELL = 'SELL',
+  BOTH = 'BOTH',
+}
