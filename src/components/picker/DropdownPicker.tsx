@@ -46,7 +46,7 @@ export const DropdownPicker = ({
         cancelIcon: CloseIcon,
       }}
       rightIconSource={ArrowDown}
-      enableModalBlur={true}
+      enableModalBlur={false}
       pickerModalProps={{overlayBackgroundColor: Colors.dark}}
     >
       {_.map(options, option => (

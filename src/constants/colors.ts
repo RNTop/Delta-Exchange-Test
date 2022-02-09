@@ -6,4 +6,8 @@ export const COLORS = {
   label: '#999999',
   text: '#cccccc',
   error: '#D20001',
+  blinkRed: '#324c45',
+  blinkGreen: '#533134',
+  blinkRed1: '#324c45cc',
+  blinkGreen1: '#533134cc',
 };

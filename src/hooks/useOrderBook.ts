@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {IBuyItem, ISellItem} from '../models';
 import {getOrderbookSubscriptionRequest} from '../utils';
 
-export const useWebSocket = (url: string) => {
+export const useOrderBook = (url: string) => {
   const [buy, setBuy] = useState<IBuyItem[]>([]);
   const [sell, setSell] = useState<ISellItem[]>([]);
   const [symbol, setSymbol] = useState<string>('BTC_USDT');
@@ -15,7 +15,6 @@ export const useWebSocket = (url: string) => {
       if (isMounted && !connected) {
         ws.onopen = () => {
           connected = true;
-          console.log('[Websocket]', 'connected');
           setBuy([]);
           setSell([]);
           ws.send(JSON.stringify(getOrderbookSubscriptionRequest(symbol)));
@@ -26,14 +25,14 @@ export const useWebSocket = (url: string) => {
             setBuy(data.buy);
             setSell(data.sell);
           }
-          console.log('[Websocket]', 'Received!');
         };
-        ws.onerror = error => {
-          console.log('[Websocket-ERROR]', error);
+        ws.onerror = () => {
+          /*
+           Do add error handler.
+          */
         };
         ws.onclose = () => {
           connected = false;
-          console.log('[Websocket]', 'disconnected');
         };
       }
     };
